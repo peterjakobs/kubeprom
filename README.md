@@ -20,6 +20,7 @@ Tested Platform
 Raspberry Pi 3b+
 
 How to run this Docker Image?
+
 $ docker build -t prometheus-armv7 .
 
 $ docker run -d --net=host -v `pwd`/prometheus.yml:/etc/prometheus/prometheus.yml prometheus-armv7
