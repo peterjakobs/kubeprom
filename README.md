@@ -1,4 +1,5 @@
-A Dockerized Prometheus Image for Raspberry Pi 2/3
+A Dockerized Prometheus Image for Raspberry Pi 2/3.
+
 Prometheus is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts if some condition is observed to be true.
 
 In case you are Raspberry Pi user and want to try it, check this out !
@@ -20,4 +21,5 @@ Raspberry Pi 3b+
 
 How to run this Docker Image?
 $ docker build -t prometheus-armv7 .
+
 $ docker run -d --net=host -v `pwd`/prometheus.yml:/etc/prometheus/prometheus.yml prometheus-armv7
