@@ -6,24 +6,20 @@ MAINTAINER "Peter Jakobs" <peterjakobs67@gmail.com>
 
 RUN apt-get update && apt-get install -qy curl ca-certificates
 
-RUN mkdir /root/prometheus
+RUN curl -sSLO https://github.com/prometheus/alertmanager/releases/download/v0.15.2/alertmanager-0.15.2.linux-armv7.tar.gz && \
+   tar -xvf alertmanager-0.15.2.linux-armv7.tar.gz -C /root/prometheus/ --strip-components=1 && \
+   rm alertmanager-0.15.2.linux-armv7.tar.gz
 
-RUN curl -sSLO https://github.com/prometheus/prometheus/releases/download/v2.3.2/prometheus-2.3.2.linux-armv7.tar.gz && \
-   tar -xvf prometheus-2.3.2.linux-armv7.tar.gz -C /root/prometheus/ --strip-components=1 && \
-   rm prometheus-2.3.2.linux-armv7.tar.gz
+WORKDIR /root/alertmanager
 
-WORKDIR /root/prometheus
+RUN mkdir /etc/alertmanager
 
-RUN mkdir -p /usr/share/prometheus && mkdir -p /etc/prometheus && mv ./prometheus /usr/bin/ && mv ./promtool /usr/bin/ && mv ./console_libraries /etc/prometheus/ && mv ./consoles /etc/prometheus/
-#RUN mv ./prometheus /usr/bin/ && mv ./promtool /usr/bin/ && mv ./console_libraries /etc/prometheus/ && mv ./consoles /etc/prometheus/
+RUN cp alertmanager               /bin/alertmanager
+RUN cp simple.yml    /etc/alertmanager/config.yml
 
-#RUN ln -s /usr/share/prometheus/console_libraries /etc/prometheus/
-
-EXPOSE 9090
-VOLUME [ "/prometheus" ]
-WORKDIR /prometheus
-ENTRYPOINT [ "/usr/bin/prometheus" ]
-CMD ["--config.file=/etc/prometheus/prometheus.yml", \
-     "--storage.tsdb.path=/prometheus", \
-     "--web.console.libraries=/etc/prometheus/console_libraries", \
-     "--web.console.templates=/etc/prometheus/consoles" ]
+EXPOSE     9093
+VOLUME     [ "/alertmanager" ]
+WORKDIR    /alertmanager
+ENTRYPOINT [ "/bin/alertmanager" ]
+CMD        [ "-config.file=/etc/alertmanager/config.yml", \
+             "-storage.path=/alertmanager" ]
