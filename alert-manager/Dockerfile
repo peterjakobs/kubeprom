@@ -15,7 +15,7 @@ WORKDIR /root/alertmanager
 RUN mkdir /etc/alertmanager
 
 RUN cp alertmanager               /bin/alertmanager
-RUN cp simple.yml    /etc/alertmanager/config.yml
+RUN cp config.yml    /etc/alertmanager/config.yml
 
 EXPOSE     9093
 VOLUME     [ "/alertmanager" ]
