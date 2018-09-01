@@ -1,9 +1,8 @@
 # Builder
 FROM resin/raspberry-pi-alpine-golang:1.9.7-20180828 as builder
-#
+
 MAINTAINER Peter jakobs <peterjakobs67@gmail.com>
-#
-#WORKDIR /go/src/app
+
 RUN pwd && ls -l && uname -a
 #RUN git clone https://github.com/google/cadvisor.git /go/src/github.com/google/cadvisor
 RUN go get -d github.com/google/cadvisor
