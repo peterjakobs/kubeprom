@@ -23,6 +23,6 @@ How to run this Docker Image?
 
 $ docker build -t prometheus-armv7 .
 
-$ docker run -d --net=host -v 'pwd'/prometheus.yml:/etc/prometheus/prometheus.yml prometheus-armv7
+$ docker run -d --net=host -v `pwd`/prometheus.yml:/etc/prometheus/prometheus.yml prometheus-armv7
 
 $ docker run -it --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --publish=8080:8080 cadvisor-armv7:latest
