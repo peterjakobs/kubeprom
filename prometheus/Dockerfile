@@ -4,7 +4,7 @@ FROM resin/rpi-raspbian:stretch-20180815
 
 MAINTAINER "Peter Jakobs" <peterjakobs67@gmail.com>
 
-RUN apt-get update && apt-get install -qy curl ca-certificates
+#RUN apt-get update && apt-get install -qy curl ca-certificates && apt-get clean
 
 RUN mkdir /root/prometheus
 
