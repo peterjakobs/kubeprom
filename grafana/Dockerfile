@@ -2,7 +2,7 @@ FROM resin/rpi-raspbian:stretch-20180815
 
 MAINTAINER "Peter Jakobs" <peterjakobs67@gmail.com>
 
-ARG GRAFANA_URL="https://s3-us-west-2.amazonaws.com/grafana-releases/master/grafana-latest.linux-x64.tar.gz"
+ARG GRAFANA_URL="https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.2.3.linux-armv7.tar.gz"
 ARG GF_UID="472"
 ARG GF_GID="472"
 
