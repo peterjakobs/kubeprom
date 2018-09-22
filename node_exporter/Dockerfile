@@ -1,6 +1,7 @@
 #FROM resin/rpi-raspbian:latest
 #FROM resin/rpi-raspbian:wheezy-20180815
-FROM resin/rpi-raspbian:stretch-20180815
+#FROM resin/rpi-raspbian:stretch-20180815
+FROM resin/armv7hf-debian:stretch
 
 MAINTAINER "Peter Jakobs" <peterjakobs67@gmail.com>
 
