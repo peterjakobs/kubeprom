@@ -1,6 +1,7 @@
 #FROM resin/rpi-raspbian:latest
 #FROM resin/rpi-raspbian:wheezy-20180815
-FROM resin/rpi-raspbian:stretch-20180815
+#FROM resin/rpi-raspbian:stretch-20180815
+FROM resin/armv7hf-debian:stretch
 
 MAINTAINER "Peter Jakobs" <peterjakobs67@gmail.com>
 
@@ -8,9 +9,9 @@ MAINTAINER "Peter Jakobs" <peterjakobs67@gmail.com>
 
 RUN mkdir /root/prometheus
 
-RUN curl -sSLO https://github.com/prometheus/prometheus/releases/download/v2.3.2/prometheus-2.3.2.linux-armv7.tar.gz && \
-   tar -xvf prometheus-2.3.2.linux-armv7.tar.gz -C /root/prometheus/ --strip-components=1 && \
-   rm prometheus-2.3.2.linux-armv7.tar.gz
+RUN curl -sSLO https://github.com/prometheus/prometheus/releases/download/v2.4.2/prometheus-2.4.2.linux-armv7.tar.gz && \
+   tar -xvf prometheus-2.4.2.linux-armv7.tar.gz -C /root/prometheus/ --strip-components=1 && \
+   rm prometheus-2.4.2.linux-armv7.tar.gz
 
 WORKDIR /root/prometheus
 
