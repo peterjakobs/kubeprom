@@ -1,6 +1,6 @@
-#  docker build -t peterjakobs/prometheus-armv7:2.3.2 .
-#  docker push peterjakobs/prometheus-armv7:2.3.2
-docker run --rm -d --name prometheus --net=host -v `pwd`/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml peterjakobs/prometheus-armv7:2.3.2
+#  docker build -t peterjakobs/prometheus-armv7:2.4.3 prometheus/
+#  docker push peterjakobs/prometheus-armv7:2.4.3
+docker run --rm -d --name prometheus --net=host -v `pwd`/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml peterjakobs/prometheus-armv7:2.4.3
 
 #  docker build -t peterjakobs/alert-manager-armv7:v0.15.2 .
 #  docker push peterjakobs/alert-manager-armv7:v0.15.2
