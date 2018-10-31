@@ -9,9 +9,9 @@ MAINTAINER "Peter Jakobs" <peterjakobs67@gmail.com>
 
 RUN mkdir /root/prometheus
 
-RUN curl -sSLO https://github.com/prometheus/prometheus/releases/download/v2.4.2/prometheus-2.4.2.linux-armv7.tar.gz && \
-   tar -xvf prometheus-2.4.2.linux-armv7.tar.gz -C /root/prometheus/ --strip-components=1 && \
-   rm prometheus-2.4.2.linux-armv7.tar.gz
+RUN curl -sSLO https://github.com/prometheus/prometheus/releases/download/v2.4.3/prometheus-2.4.3.linux-armv7.tar.gz && \
+   tar -xvf prometheus-2.4.3.linux-armv7.tar.gz -C /root/prometheus/ --strip-components=1 && \
+   rm prometheus-2.4.3.linux-armv7.tar.gz
 
 WORKDIR /root/prometheus
 
