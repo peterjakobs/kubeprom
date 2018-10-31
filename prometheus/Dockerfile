@@ -15,12 +15,19 @@ RUN curl -sSLO https://github.com/prometheus/prometheus/releases/download/v2.4.2
 
 WORKDIR /root/prometheus
 
-RUN mkdir -p /usr/share/prometheus && mkdir -p /etc/prometheus && mv ./prometheus /usr/bin/ && mv ./promtool /usr/bin/ && mv ./console_libraries /etc/prometheus/ && mv ./consoles /etc/prometheus/
+RUN mkdir -p /usr/share/prometheus && 
+mkdir -p /etc/prometheus && 
+mv ./prometheus /bin/ && 
+mv ./promtool /bin/ && 
+mv ./console_libraries /usr/share/prometheus/ && 
+mv ./consoles /usr/share/prometheus/ && 
+ln -s /usr/share/prometheus/console_libraries /etc/prometheus/console_libraries &&
+ln -s /usr/share/prometheus/consoles /etc/prometheus/consoles
 
 EXPOSE 9090
 VOLUME [ "/prometheus" ]
 WORKDIR /prometheus
-ENTRYPOINT [ "/usr/bin/prometheus" ]
+ENTRYPOINT [ "/bin/prometheus" ]
 CMD ["--config.file=/etc/prometheus/prometheus.yml", \
      "--storage.tsdb.path=/prometheus", \
      "--web.console.libraries=/etc/prometheus/console_libraries", \
